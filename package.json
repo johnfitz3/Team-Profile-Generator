@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "template-helpers": "^1.0.1"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0"
+  }
+}
