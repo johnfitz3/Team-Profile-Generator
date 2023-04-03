@@ -12,11 +12,19 @@ const DIST_DIR = path.resolve(__dirname, "dist");
 const outputPath = path.join(DIST_DIR, "team.html");
 
 
-const generateHTML = require("./src/webpack.config");
+
 const { create } = require('domain');
 
 const employees = [];
 
+
+const validateInput = (userInput)=> {
+  if (userInput===''){
+    return 'Input required';
+  }else {
+    return true;
+  }
+};
 const addEmployee = () => {
     return inquirer.prompt([
       {
