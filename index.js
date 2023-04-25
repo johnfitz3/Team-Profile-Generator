@@ -9,11 +9,12 @@ const Manager = require('./lib/manager');
 
 
 const DIST_DIR = path.resolve(__dirname, "dist");
-const outputPath = path.join(DIST_DIR, "team.html");
+const outputPath = path.join(DIST_DIR, "index.html");
 
 
 
 const { create } = require('domain');
+
 
 const employees = [];
 
@@ -92,27 +93,25 @@ message: 'Would you like to add an employee?'
     });
   };
 
+  function templateHTML(teamMembers) {
 
-
-  function createTeamFile() {
+  }
+  
+  function createTeamFile(employees) {
     if (!fs.existsSync(DIST_DIR)) {
-        fs.mkdirSync(DIST_DIR);
-    } else {
-        fs.writeFileSync(outputPath, templateHTML(teamMembers), 'utf-8');
-        console.log('HTML file created in the dist folder');
+      fs.mkdirSync(DIST_DIR);
     }
-}
-
-
-function startApp() {
+    fs.writeFileSync(outputPath, templateHTML(employees), 'utf-8');
+    console.log('HTML file created in the dist folder');
+  }
+  
+  function startApp() {
     addEmployee().then((employees) => {
-        createTeamFile(employees);
+      createTeamFile(employees);
     });
-}
-
-startApp();
-
-
+  }
+  
+  startApp();
 
 
 
